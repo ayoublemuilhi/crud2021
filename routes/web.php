@@ -15,7 +15,14 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::resource('/','BrancheController');
+Auth::routes();
+Route::view('/','auth.login');
+
+Route::group(['middleware' => 'auth'],function (){
+    Route::resource('/branche','BrancheController');
+    Route::get('/user/{id}','BrancheController@infoP');
+
+});
 
 
 
@@ -23,3 +30,5 @@ Route::resource('/','BrancheController');
 
 
 
+
+Route::get('/home', 'HomeController@index')->name('home');

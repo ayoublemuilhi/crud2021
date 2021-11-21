@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-    <form method="post" action="{{route('store')}}">
+    <form method="post" action="{{route('branche.store')}}">
         @csrf
 
         <div class="row">
